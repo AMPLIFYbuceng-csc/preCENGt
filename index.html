@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amplify Attendance Scanner</title>
+    <link rel="icon" type="image/svg+xml" href="amplify.svg">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="fixed-bg"></div>
+
+
+<div class="glass-container project-header">
+  <h1 class="project-title">Project Pre<span class="ceng-highlight">CENG</span>t</h1>
+</div>
+
+  <h2>Attendance Scanner</h2>
+    <div id="reader" class="glass-container"></div>
+    <div class="scanner-overlay"></div>
+
+    <input type="range" id="zoomSlider" min="1" max="1" step="0.1" value="1" disabled>
+
+    <pre id="scannedText" class="glass-container">No scan yet...</pre>
+
+    <div class="control-section glass-container">
+        <label for="yearLevel">Select Year Level:</label>
+        <select id="yearLevel">
+            <option value="">Select</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+        </select>
+        <button onclick="submitAttendance()" id="submitBtn" disabled>Confirm & Send</button>
+    </div>
+
+    <p id="status" class="glass-container">Waiting for scan or input...</p>
+
+    <hr>
+    <h3>Manual Input</h3>
+    <textarea id="manualInput" placeholder="Paste QR Data here. ex.1234-1234-1234JUAN DELA CRUZCOLLEGE OF ENGINEERING..." rows="4" cols="40" oninput="checkInputs()" class="glass-container"></textarea>
+
+    <div id="overlay"></div>
+    <div id="popup">
+        <h3>Student Info</h3>
+        <pre id="popupContent"></pre>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <div id="loading">Sending attendance... Please wait.</div>
+
+    <script src="script.js"></script>
+</body>
+<footer>
+  <div class="footer-container">
+    <div class="brand-header">
+      <div class="logo-placeholder">
+        <img src="saentax.png" alt="Saentax Logo">
+      </div>
+      <span class="brand-name">Saentax</span>
+    </div>
+
+    <span class="brand-divider">|</span>
+
+    <div class="brand-header">
+      <div class="logo-placeholder">
+        <img src="amplify.svg" alt="Amplify Logo">
+      </div>
+      <span class="brand-name">Amplify</span>
+    </div>
+  </div>
+</footer>
+</html>

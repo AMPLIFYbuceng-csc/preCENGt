@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="fixed-bg"></div>
-
 
 <div class="glass-container project-header">
   <h1 class="project-title">Project Pre<span class="ceng-highlight">CENG</span>t</h1>
@@ -33,6 +31,17 @@
             <option value="3rd Year">3rd Year</option>
             <option value="4th Year">4th Year</option>
         </select>
+        
+        <div class="signature-section">
+            <label>E-Signature:</label>
+            <canvas id="signatureCanvas" width="300" height="150"></canvas>
+            <div class="signature-controls">
+                <button type="button" onclick="clearSignature()" class="secondary-btn">Clear Signature</button>
+                <button type="button" onclick="captureSignature()" class="secondary-btn">Capture Signature</button>
+            </div>
+            <div id="signaturePreview" class="signature-preview"></div>
+        </div>
+        
         <button onclick="submitAttendance()" id="submitBtn" disabled>Confirm & Send</button>
     </div>
 
@@ -41,6 +50,8 @@
     <hr>
     <h3>Manual Input</h3>
     <textarea id="manualInput" placeholder="Paste QR Data here. ex.1234-1234-1234JUAN DELA CRUZCOLLEGE OF ENGINEERING..." rows="4" cols="40" oninput="checkInputs()" class="glass-container"></textarea>
+
+
 
     <div id="overlay"></div>
     <div id="popup">

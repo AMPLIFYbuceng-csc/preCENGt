@@ -117,7 +117,7 @@ body {
                 overflow: hidden;
                 transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 margin: 0 auto;
-                width: clamp(280px, 90vw, 400px);
+                width: clamp(320px, 95vw, 450px);
             }
 
             .glass-container::before {
@@ -274,11 +274,13 @@ body {
             }
 
             .control-section {
-                display: flex;
-                flex-direction: column;
-                gap: var(--spacing-sm);
-                margin-bottom: var(--spacing-md);
-            }
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+    max-width: clamp(320px, 95vw, 450px);
+}
 
             select, button { 
                 padding: clamp(8px, 2.5vw, 12px) clamp(15px, 4vw, 20px); 
@@ -367,7 +369,7 @@ body {
                 resize: vertical;
                 color: var(--input-text-color);
                 min-height: clamp(80px, 20vw, 100px);
-                width: clamp(280px, 90vw, 400px);
+                width: clamp(320px, 95vw, 450px);
                 padding: var(--container-padding);
                 font-size: clamp(0.8rem, 2.5vw, 1rem);
             }
@@ -569,13 +571,12 @@ body {
                     gap: 8px;
                 }
                 
-                .glass-container {
+                .glass-container,
+                textarea.glass-container,
+                .control-section,
+                .signature-section {
                     width: calc(100vw - 16px);
                     padding: 10px;
-                }
-                
-                textarea.glass-container {
-                    width: calc(100vw - 16px);
                 }
                 
                 #reader {
@@ -588,7 +589,10 @@ body {
             }
 
             @media (min-width: 1200px) {
-                .glass-container, textarea.glass-container {
+                .glass-container, 
+                textarea.glass-container,
+                .control-section,
+                .signature-section {
                     width: 450px;
                 }
                 
@@ -1045,6 +1049,8 @@ body {
     margin: var(--spacing-md) 0;
     border-top: 1px solid var(--glass-border);
     padding-top: var(--spacing-md);
+    width: 100%;
+    max-width: clamp(320px, 95vw, 450px);
 }
 
 #signatureCanvas {
@@ -1058,7 +1064,7 @@ body {
     transition: all 0.3s ease;
     max-width: 100%;
     height: auto;
-    width: 280px;
+    width: 100%;
     height: 120px;
 }
 
@@ -1102,7 +1108,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border: 1px dashed var(--color-medium-blue);
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
 }
 
 .signature-preview img {
@@ -1133,23 +1139,23 @@ body {
     
     #signatureCanvas {
         width: 100%;
-        max-width: 250px;
         height: 100px;
     }
     
     .signature-section {
         padding: var(--spacing-sm);
+        width: 100%;
     }
 }
 
 @media (min-width: 1200px) {
     .signature-section {
         width: 100%;
-        max-width: 400px;
+        max-width: 450px;
     }
     
     #signatureCanvas {
-        width: 350px;
+        width: 100%;
         height: 150px;
     }
 }
@@ -1158,12 +1164,12 @@ body {
 @media (max-width: 768px) {
     #signatureCanvas {
         width: 100%;
-        max-width: 280px;
         height: 110px;
     }
     
     .signature-section {
         padding: var(--spacing-sm);
+        width: 100%;
     }
 }
 

@@ -52,6 +52,7 @@ body {
   gap: var(--spacing-md);
   overflow-x: hidden;
   z-index: 0;
+  background-attachment: fixed;
 }
 
 
@@ -66,18 +67,13 @@ body::before {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  background-attachment: fixed;
   z-index: -1;
   pointer-events: none;
   will-change: transform;
-}
-
-
-@supports (-webkit-overflow-scrolling: touch) {
-  body::before {
-    position: absolute;
-    background-attachment: scroll;
-    opacity: 0.9;
-  }
+  opacity: 0.9;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 
@@ -96,6 +92,15 @@ body::before {
                 text-shadow: 0 0 10px var(--heading-shadow-color);
                 font-size: clamp(1rem, 4vw, 1.2rem);
             }
+
+/* Ensure background stays fixed on all devices */
+html {
+  background-attachment: fixed;
+}
+
+body {
+  background-attachment: fixed;
+}
 
             .glass-container {
                 position: relative;
